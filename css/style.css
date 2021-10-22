@@ -3,7 +3,7 @@ body{
 }
 
 .container{
-    background-color: rgb(226, 178, 45);
+    background-color: rgb(0, 0, 0);
     width:700px;
     height:900px;
     margin:auto;
@@ -18,14 +18,21 @@ body{
     grid-template-columns: repeat(4, 80px);
     grid-template-rows: repeat(5, 80px);
     grid-row-gap: 10px;
-    grid-column-gap:10px;
-
-    
+    grid-column-gap:10px;    
 }
-
+button{
+    background-color: #62C370;
+}
+button.number{
+    background-color: #9AD1D4;
+}
 button.equals{
     grid-column: 3 / 5;
+    background-color: #CC3363;
 }
+/* button.operator{
+    background-color: #62C370;
+} */
 button{
     font-size: 30px;
     border-radius:20px;   
