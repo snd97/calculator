@@ -5,6 +5,8 @@ let calculator = document.querySelector(".container") //div for overall calculat
 let equationResult = document.querySelector(".answerText"); //holds the result of the evaluated equation to display to user on screen
 let buttons = document.querySelectorAll("button"); //select all buttons from HTML
 
+
+
 let equalsPressed = false; //initially the equals button default to false
 let equation = 0; //declare the equation as 0 initially
 
