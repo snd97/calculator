@@ -68,14 +68,14 @@ calcKeys.addEventListener('click', (event) => {
 	let inputDisplay = calculateText.textContent;
 //store the class name of the button pressed into a variable called buttonType - which differentiates operators, numbers, clear button and delete button
     const buttonType = buttonPressed.className;
-    
-    const previousKeyType = calculator.className.previousKeyType;
+    const previousButtonType = calculator.className.previousButtonType;
 
+//detect which type of button was pressed while equals has not been pressed
     if(buttonType === 'number' && !equalsPressed) {
 	
         if (inputDisplay === '0') {
-            calculateText.textContent = (previousKeyType === 'operator') ? inputDisplay + keyValue : keyValue;
-            equation = (previousKeyType === 'operator') ? equation + keyValue : keyValue;
+            calculateText.textContent = (previousButtonType === 'operator') ? inputDisplay + keyValue : keyValue;
+            equation = (previousButtonType === 'operator') ? equation + keyValue : keyValue;
         }else {
             calculateText.textContent = calculateText.textContent.includes('N') ? 'NaN' : 
                     calculateText.textContent.includes('I') ? 'Infinity' : inputDisplay + keyValue;
@@ -83,7 +83,7 @@ calcKeys.addEventListener('click', (event) => {
         }
     }
 
-    if (buttonType === 'operator' && previousKeyType !== 'operator'
+    if (buttonType === 'operator' && previousButtonType !== 'operator'
             && !equalsPressed && !inputDisplay.includes('Infinity')) {
             calculateText.textContent = inputDisplay + ' ' + keyValue + ' ';
             equation = equation + ' ' + keyValue + ' ';
@@ -103,7 +103,7 @@ calcKeys.addEventListener('click', (event) => {
             }
     
     }
-//if the equals button has been pressed, evaluate the equation and print out the answer to the calculator display
+//when the equals button has been pressed, evaluate the equation and print out the answer to the calculator display
     if (buttonType === 'equals') {
         equalsPressed = true;
         const finalResult = evaluateEquation(equation);
@@ -116,7 +116,7 @@ calcKeys.addEventListener('click', (event) => {
         }
             
     }     
-    calculator.className.previousKeyType = buttonType;   
+    calculator.className.previousButtonType = buttonType;   
 
 })
 
